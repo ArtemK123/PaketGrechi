@@ -58,7 +58,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: darkmode1012/paket-grechy:latest
+          tags: darkmode1012/paket-grechi:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
