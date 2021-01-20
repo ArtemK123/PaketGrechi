@@ -3,7 +3,7 @@ version: '3.7'
 services:
 
   frontend:
-    container_name: PaketGrechi_frontend
+    container_name: paketgrechi
     build:
       context: .
       dockerfile: Dockerfile
