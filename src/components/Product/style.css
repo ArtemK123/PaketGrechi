@@ -26,6 +26,40 @@
     font-weight: normal;
 }
 
-.product .product-price {
+.product a {
+    color: #3e77aa;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.product a:hover {
+    text-decoration: underline;
+}
+
+.product .name {
+    height: 40px;
+    overflow: hidden;
+}
+
+.product .price {
     font-weight: bold;
+    display: flex;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.product .price .integer {
+    font-size: 18px;
+    line-height: 1.15;
+}
+
+.product .price .fraction {
+    font-size: 10px;
+    line-height: 1.3;
+}
+
+.product .price .currency {
+    margin-left: 5px;
+    font-size: 18px;
+    line-height: 1.15;
 }
