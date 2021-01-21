@@ -10,7 +10,7 @@ function ProductList() {
 
     useEffect(() => {
         const data = loadData();
-        const cheapest = getCheapest(data, 4);
+        const cheapest = getCheapest(data);
         setData(cheapest);
     }, []);
 
