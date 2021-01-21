@@ -31,9 +31,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Run the tests
-        run: npm test
-
   deploy-to-dockethub:
     runs-on: ubuntu-latest
   
