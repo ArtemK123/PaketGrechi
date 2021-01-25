@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
+import getEnvVariable from '../../services/getEnvVariable';
+
 import './style.css';
 
-const BACKEND_URL_BASE = "http://localhost:8080";
-const REFERRER_POLICY = "no-referrer-when-downgrade";
+const REFERRER_POLICY = 'no-referrer-when-downgrade';
 
 export default function BackendCheck() {
     const [connectionConfigured, setConnectionConfigured] = useState(undefined);
 
     useEffect(() => {
         if (connectionConfigured === undefined) {
-            fetch(BACKEND_URL_BASE, {
+            fetch(getEnvVariable('REACT_APP_BACKEND_URL_BASE'), {
                 referrerPolicy: REFERRER_POLICY
             })
             .then(response => setConnectionConfigured(response.ok))
