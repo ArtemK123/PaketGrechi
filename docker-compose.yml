@@ -1,11 +1,18 @@
 version: '3.7'
 
 services:
-
-  frontend:
-    container_name: paketgrechi
+  backend:
+    container_name: paketgrechi-backend
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - 8080:8080
+
+  frontend:
+    container_name: paketgrechi-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:80

@@ -5,36 +5,9 @@ name: PaketGrechi CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [13.x]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
-      - name: Run the tests
-        run: npm test
-
-  deploy-to-dockethub:
+  deploy-to-dockerhub:
     runs-on: ubuntu-latest
   
     steps:
@@ -51,14 +24,20 @@ jobs:
         id: buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Build and push
-        id: docker_build
+      - name: Build and push frontend
+        id: docker_build_frontend
         uses: docker/build-push-action@v2
         with:
-          context: ./
-          file: ./Dockerfile
+          context: ./frontend
+          file: ./frontend/Dockerfile.prod
           push: true
-          tags: darkmode1012/paket-grechi:latest
+          tags: darkmode1012/paket-grechi-frontend:latest
 
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Build and push backend
+        id: docker_build_backend
+        uses: docker/build-push-action@v2
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags: darkmode1012/paket-grechi-backend:latest
