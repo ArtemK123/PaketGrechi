@@ -23,14 +23,14 @@ Product.propTypes = {
     src: PropTypes.string,
     name: PropTypes.string,
     link: PropTypes.string,
-    price: PropTypes.number
+    price: PropTypes.string
 };
 
 Product.defaultProps = {
     src: '',
     name: '',
     link: '',
-    price: 0
+    price: '0'
 };
 
 export default Product;

@@ -1,0 +1,23 @@
+header .filters select {
+    border: 1px solid#dfe1e5;
+    border-radius: 4px;
+    height: 30px;
+    width: 190px;
+    padding: 5px;
+}
+
+header .filters select:focus {
+    outline: none;
+    border: 1px solid black;
+}
+
+header .filters option {
+    width: 190px;
+}
+
+@media (max-width: 300px) {
+    header .filters select, 
+    header .filters option {
+        width: 110px;
+    }
+}

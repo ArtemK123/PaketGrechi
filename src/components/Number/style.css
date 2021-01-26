@@ -1,0 +1,28 @@
+.number {
+    display: flex;
+}
+
+.number input, .number button {
+    width: 40px;
+    height: 30px;
+    border: 1px solid#dfe1e5;
+}
+
+.number button {
+    background-color: #DCDCDC;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+}
+
+.number input {
+    padding: 5px;
+    padding-left: 10px;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+.number button:focus, .number input:focus {
+    border: 1px solid black;
+    outline: none;
+}
+
