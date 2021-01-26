@@ -8,7 +8,9 @@ const ERROR_MESSAGE = 'Error while configuring connection with backend.';
 
 export default function BackendCheck() {
     useEffect(() => {
-        fetch(getEnvVariable('REACT_APP_BACKEND_URL_BASE'), {
+        const backendUrl = getEnvVariable('REACT_APP_BACKEND_URL_BASE');
+        console.log(`Backend url is ${backendUrl}`);
+        fetch(backendUrl, {
             referrerPolicy: REFERRER_POLICY
         })
         .then(response => {

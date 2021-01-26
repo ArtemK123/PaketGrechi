@@ -13,6 +13,6 @@ services:
     container_name: paketgrechi-frontend
     build:
       context: ./frontend
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     ports:
       - 3000:80
