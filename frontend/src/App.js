@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Search from './components/Search';
 import ProductList from './components/ProductList';
 import { FilterProvider } from './context/FilterContext';
+import BackendCheck from './components/BackendCheck';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
       <main>
         <Search />
         <ProductList />
+        <BackendCheck />
       </main>
       <Footer />
     </FilterProvider>
