@@ -1,4 +1,4 @@
-const delay = (data, error = '', delay = 10000) => 
+const delay = (data, error = '', delay = 1000) => 
     new Promise((resolve, reject) => 
         setTimeout(() => error ? reject(error) : resolve(data), 
     delay) 
