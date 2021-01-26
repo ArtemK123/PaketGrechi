@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import { FilterContext } from '../../context/FilterContext';
 
@@ -16,9 +16,7 @@ function SearchInput() {
         const timeOutId = setTimeout(() => setSearch(value), 500);
         return () => clearTimeout(timeOutId);
     }, [value]);
-    
-    console.log('search', search)
-    console.log('value', value)
+
     return (
         <div className="search">
             <input type="text" placeholder="Пошук" value={value} onChange={handleChange} />

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import BackendCheck from './components/BackendCheck';
+import Search from './components/Search';
 import ProductList from './components/ProductList';
 import { FilterProvider } from './context/FilterContext';
 
@@ -13,8 +13,8 @@ function App() {
     <FilterProvider>
       <Header />
       <main>
+        <Search />
         <ProductList />
-        <BackendCheck />
       </main>
       <Footer />
     </FilterProvider>

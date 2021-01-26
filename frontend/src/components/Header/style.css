@@ -27,8 +27,9 @@ header .logo {
 }
 
 header .logo img {
-    height: 15vh;
+    height: 12vh;
     padding: 5px;
+    margin: 5px;
 }
 
 header .logo p {
