@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext, useMemo } from 'react';
 import Product from '../Product';
 import Loader from '../Loader';
 import { FilterContext } from '../../context/FilterContext';
-import { loadData, getN, sort } from '../../services/data';
+import { loadData, getN, sort, findByName } from '../../services/data';
 
 import './style.css';
 
@@ -11,7 +11,7 @@ function ProductList() {
     const [data, setData] = useState([]);
     const [isLoading, setLoading] = useState(false);
 
-    const [{ number, sortDirection }] = useContext(FilterContext);
+    const [{ number, sortDirection, search }] = useContext(FilterContext);
 
     useEffect(() => {
         async function fetchData() {
@@ -24,9 +24,10 @@ function ProductList() {
     }, []);
 
     const cheapest = useMemo(() => {
-        const sorted = sort(data, sortDirection);
+        const searched = search ? findByName(data, search) : data;
+        const sorted = sort(searched, sortDirection);
         return number ? getN(sorted, number) : sorted;
-    }, [data, number, sortDirection]);
+    }, [data, number, sortDirection, search]);
 
     return isLoading ? 
         <Loader isLoading={isLoading} /> :

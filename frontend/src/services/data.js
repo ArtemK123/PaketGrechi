@@ -60,4 +60,8 @@ function getN(data, N) {
     return data.slice(0, N);
 }
 
-export { loadData, getN, sort };
+function findByName(data, name) {
+    return data.filter(value => value.name.toLowerCase().includes(name.toLowerCase() ));
+}
+
+export { loadData, getN, sort, findByName };

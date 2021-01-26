@@ -3,7 +3,8 @@ import React, { useState,
 
 const initData = {
   number: false,
-  sortDirection: 'asc'
+  sortDirection: 'asc',
+  search: ''
 };
 
 const FilterContext = createContext([initData, () => {}, () => {}]);
@@ -13,9 +14,10 @@ const FilterProvider = ({ children }) => {
 
   const setNumber = number => setValue({...value, number});
   const setSortDirection = sortDirection => setValue({...value, sortDirection});
+  const setSearchValue = search => setValue({...value, search});
 
   return (
-    <FilterContext.Provider value={[value, setNumber, setSortDirection]}>
+    <FilterContext.Provider value={[value, setNumber, setSortDirection, setSearchValue]}>
       { children }
     </FilterContext.Provider>);
 };
