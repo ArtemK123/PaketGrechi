@@ -2,7 +2,7 @@ import React, { useState,
   createContext } from 'react';
 
 const initData = {
-  number: false,
+  number: 5,
   sortDirection: 'asc',
   search: ''
 };

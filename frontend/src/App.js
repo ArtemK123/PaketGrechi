@@ -16,7 +16,6 @@ function App() {
       <main>
         <Search />
         <ProductList />
-        <BackendCheck />
       </main>
       <Footer />
     </FilterProvider>

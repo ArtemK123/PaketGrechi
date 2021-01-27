@@ -25,12 +25,6 @@ async function loadFromStore(url, ref, store) {
 }
 
 async function loadData() {
-    const metroKasha = await loadFromStore(
-        'https://stores-api.zakaz.ua/stores/48215611/products/search/?q=гречана', 
-        'https://metro.zakaz.ua/ru/search/?q=гречана',
-        'Metro'
-    );
-    const metro = metroKasha.filter(value => value.name.toLowerCase().includes('греч'));
     const varus = await loadFromStore(
         'https://stores-api.zakaz.ua/stores/48241001/products/search/?q=гречана крупа', 
         'https://varus.zakaz.ua/ru/search/?q=гречана крупа',
@@ -41,7 +35,7 @@ async function loadData() {
         'https://eko.zakaz.ua/ru/search/?q=гречана',
         'EcoMarket'
     );
-    return [...metro, ...varus, ...ecomarket];
+    return [...varus, ...ecomarket];
 }
 
 const sortDirections = {
