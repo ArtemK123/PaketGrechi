@@ -42,7 +42,7 @@ async function loadData() {
         'https://stores-api.zakaz.ua/stores/48241001/products/search/?q=гречана крупа', 
         'https://varus.zakaz.ua/ru/search/?q=гречана крупа',
         'varus',
-        'varus'
+        'Varus'
     );
     const ecomarket = await loadFromStore(
         'https://stores-api.zakaz.ua/stores/48280214/products/search/?q=гречана', 
