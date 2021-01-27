@@ -1,8 +1,15 @@
-async function loadFromStore(url, ref, store) {
+async function loadFromStore(url, ref, chain, store) {
     const response = await fetch(url, {
         "headers": {
+          "accept": "*/*",
           "accept-language": "uk",
-          "content-type": "application/json"
+          "content-type": "application/json",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-site",
+          "x-chain": chain,
+          "x-delivery-type": "undefined",
+          "x-version": "29"
         },
         "referrer": ref,
         "referrerPolicy": "no-referrer-when-downgrade",
@@ -25,17 +32,25 @@ async function loadFromStore(url, ref, store) {
 }
 
 async function loadData() {
+    const auchan = await loadFromStore(
+        'https://stores-api.zakaz.ua/stores/48246401/products/search/?q=крупа гречана', 
+        'https://auchan.zakaz.ua/ru/search/?q=крупа гречана',
+        'auchan',
+        'Ашан'
+    );
     const varus = await loadFromStore(
         'https://stores-api.zakaz.ua/stores/48241001/products/search/?q=гречана крупа', 
         'https://varus.zakaz.ua/ru/search/?q=гречана крупа',
-        'Varus'
+        'varus',
+        'varus'
     );
     const ecomarket = await loadFromStore(
         'https://stores-api.zakaz.ua/stores/48280214/products/search/?q=гречана', 
         'https://eko.zakaz.ua/ru/search/?q=гречана',
+        'ekomarket',
         'EcoMarket'
     );
-    return [...varus, ...ecomarket];
+    return [...auchan, ...varus, ...ecomarket];
 }
 
 const sortDirections = {
