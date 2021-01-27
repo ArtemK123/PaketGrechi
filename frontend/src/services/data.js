@@ -9,7 +9,8 @@ async function loadFromStore(url, ref, chain, store) {
           "sec-fetch-site": "same-site",
           "x-chain": chain,
           "x-delivery-type": "undefined",
-          "x-version": "29"
+          "x-version": "29",
+          "Access-Control-Allow-Origin": '*'
         },
         "referrer": ref,
         "referrerPolicy": "no-referrer-when-downgrade",
