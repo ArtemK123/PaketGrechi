@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 
 import { FilterContext } from '../../context/FilterContext';
 import './style.css';
 
-const defaultNumber = 3;
+const defaultNumber = 5;
 const minNumber = 1;
 
 function Number() {
     const [ { number }, setNumber ] = useContext(FilterContext);
+    const inputEl = useRef(null);
+    useEffect(() => {
+        inputEl.current.focus();
+    }, []);
     const selectNumber = ({target: {value}}) => {
         setNumber(value);
     };
@@ -20,6 +24,7 @@ function Number() {
             <input 
                 type="number"
                 min={minNumber}
+                ref={inputEl}
                 value={number} 
                 onChange={selectNumber} 
                 onClick={() => number || setNumber(defaultNumber)}
