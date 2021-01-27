@@ -2,7 +2,7 @@
 
 const express = require('express');
 const cors = require('cors');
-const silpoScrapper = require('./scrapping/silpoScrapper');
+const shopDataLoader = require('./shopDataLoader');
 
 // Constants
 const PORT = 8080;
@@ -15,14 +15,17 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.get('/silpo', async (req, res) => {
+app.get('/data', async (req, res) => {
     try{
-        const silpoData = await silpoScrapper.scrapSilpoAsync();
-        res.send(JSON.stringify(silpoData));
+        const auchan = await shopDataLoader.loadAuchanAsync();
+        const ecomarket = await shopDataLoader.loadEcomarketAsync();
+        const varus = await shopDataLoader.loadVarusAsync();
+        const populatedData = [...auchan, ...varus, ...ecomarket];
+        res.send(JSON.stringify(populatedData));
     }
     catch(error) {
         console.log(error);
-        res.send('Error while parsing silpo');
+        res.send('Error while loading data');
     }
 });
 
