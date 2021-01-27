@@ -2,7 +2,7 @@ import getEnvVariable from './getEnvVariable';
 
 async function loadData() {
     const response = await fetch(`${getEnvVariable('REACT_APP_BACKEND_URL_BASE')}/data`, {
-        referrerPolicy: 'no-referrer-when-downgrade'
+        referrerPolicy: getEnvVariable('REACT_APP_REFERRER_POLICY')
     });
     return await response.json();
 }
